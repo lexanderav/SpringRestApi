@@ -6,14 +6,14 @@ public class TodoModel {
     private Long id;
     private String title;
     private Boolean completed;
-    //private String description;
+    private String description;
 
     public static TodoModel toModel(TodoEntity todoEntity) {
         TodoModel todo = new TodoModel();
         todo.setId(todoEntity.getId());
         todo.setTitle(todoEntity.getTitle());
         todo.setCompleted(todoEntity.getCompleted());
-        //todo.setDescription(todoEntity.getDescription());
+        todo.setDescription(todoEntity.getDescription());
         return todo;
     }
 
@@ -44,11 +44,11 @@ public class TodoModel {
         this.completed = completed;
     }
 
-//    public String getDescription() {
-//        return description;
-//    }
-//
-//    public void setDescription(String description) {
-//        this.description = description;
-//    }
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

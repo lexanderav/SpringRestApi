@@ -18,8 +18,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    //https://javarush.ru/groups/posts/2488-obzor-rest-chastjh-3-sozdanie-restful-servisa-na-spring-boot
-
     @PostMapping("/users")
     public ResponseEntity<?> createUser(@RequestBody UserEntity user) {
         try {
@@ -35,7 +33,6 @@ public class UserController {
     @GetMapping("/users")
     public ResponseEntity<List<UserModel>> readUsers() {
         final List<UserModel> users = userService.readAll();
-
         return users != null && !users.isEmpty()
                 ? new ResponseEntity<>(users, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -50,13 +47,6 @@ public class UserController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Произошла ошибка");
         }
-
-
-//        final User user = userService.read(id);
-//
-//        return user != null
-//                ? new ResponseEntity<>(user, HttpStatus.OK)
-//                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/users/{id}")
@@ -68,11 +58,6 @@ public class UserController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Произошла ошибка");
         }
-
-//        final boolean delete = userService.delete(id);
-//        return delete
-//                ? new ResponseEntity<>(HttpStatus.OK)
-//                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PutMapping("/users/{id}")
@@ -85,9 +70,5 @@ public class UserController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Произошла ошибка");
         }
-
-//        return update
-//                ? new ResponseEntity<>(HttpStatus.OK)
-//                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }

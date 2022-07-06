@@ -1,6 +1,5 @@
 package ru.klyuev.SpringRestApi.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -13,7 +12,8 @@ public class TodoEntity {
     private Long id;
     private String title;
     private Boolean completed;
-    
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonIgnore
@@ -52,5 +52,13 @@ public class TodoEntity {
 
     public void setUser(UserEntity user) {
         this.user = user;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

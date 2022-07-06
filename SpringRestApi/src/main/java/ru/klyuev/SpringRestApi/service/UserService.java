@@ -13,5 +13,4 @@ public interface UserService {
     UserModel read(Long id) throws UserNotFoundException;
     boolean update(UserEntity user, Long id) throws UserNotFoundException;
     boolean delete(Long id) throws UserNotFoundException;
-    UserEntity readByUsername(String user);
 }

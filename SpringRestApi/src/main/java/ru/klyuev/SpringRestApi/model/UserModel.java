@@ -9,13 +9,13 @@ public class UserModel {
 
     private Long id;
     private String username;
-    //private List<TodoModel> todos;
+    private List<TodoModel> todos;
 
     public static UserModel toModel(UserEntity entity) {
         UserModel model = new UserModel();
         model.setId(entity.getId());
         model.setUsername(entity.getUsername());
-        //model.setTodos(entity.getTodos().stream().map(TodoModel::toModel).collect(Collectors.toList()));
+        model.setTodos(entity.getTodos().stream().map(TodoModel::toModel).collect(Collectors.toList()));
         return model;
     }
 
@@ -37,11 +37,11 @@ public class UserModel {
         this.username = username;
     }
 
-//    public List<TodoModel> getTodos() {
-//        return todos;
-//    }
-//
-//    public void setTodos(List<TodoModel> todos) {
-//        this.todos = todos;
-//    }
+    public List<TodoModel> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(List<TodoModel> todos) {
+        this.todos = todos;
+    }
 }
